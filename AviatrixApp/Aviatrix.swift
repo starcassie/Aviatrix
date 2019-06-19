@@ -12,14 +12,22 @@ class Aviatrix {
     
     // holds author
     var author: String
+    var running = false
+    var data: AviatrixData
+    var location: String
+    var distanceTraveled: Int
     
     // initializer
     init(name: String) {
         author = name
+        data = AviatrixData()
+        location = "St. Louis"
+        distanceTraveled = 0
     }
     
     func start() -> Bool {
-        return true
+        running = true
+        return (running)
     }
     
     func refuel() {
@@ -27,14 +35,18 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
-        
+        location = destination
     }
     
-    func distanceTo(target : String) {
-    
+    func distanceTo(loc: String, target : String) -> Int{
+        return(data.knownDistances[loc]![target]!)
     }
     
     func knownDestinations() -> [String] {
-       return ["St. Louis"]
+        var places = [String]()
+        for city in data.knownDistances {
+            places.append(city.key)
+        }
+       return (places)
     }
 }
