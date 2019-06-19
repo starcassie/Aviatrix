@@ -24,8 +24,23 @@ func fly(myPlane : Aviatrix) {
     print("Where would you like to fly to? ")
     print(" ")
     let destinations = myPlane.knownDestinations()
-    
-    for (index, city) in destinations.enumerated() {
+    var destinationsOrder = [String]()
+    for (_, city) in destinations.enumerated() {
+        let distance = myPlane.distanceTo(loc: myPlane.location, target: city)
+        if (!destinationsOrder.isEmpty) {
+            for index in 0..<destinationsOrder.count {
+                if(distance < myPlane.distanceTo(loc: myPlane.location, target: destinationsOrder[index])) {
+                    destinationsOrder.insert(city, at: index)
+                    break
+                } else if (index == destinationsOrder.count - 1) {
+                    destinationsOrder.append(city)
+                }
+            }
+        } else {
+            destinationsOrder.append(city)
+        }
+    }
+    for (index, city) in destinationsOrder.enumerated() {
         let distance = myPlane.distanceTo(loc: myPlane.location, target: city)
         print("\(index): \(city), (\(distance) miles)")
     }
@@ -33,8 +48,8 @@ func fly(myPlane : Aviatrix) {
     let response = Int(readLine()!)
     var desiredLocation = ""
     
-    if response! >= 0 && response! < 4 {
-        desiredLocation = myPlane.knownDestinations()[response!]
+    if response! >= 0 && response! < destinationsOrder.count {
+        desiredLocation = destinationsOrder[response!]
         
         print("🛫 Preparing for takeoff...")
         print("🛫 Flying...")

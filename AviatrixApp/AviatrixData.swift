@@ -22,25 +22,36 @@ class AviatrixData {
             "St. Louis" : 0,
             "Phoenix" : 1260,
             "Denver" : 768,
-            "SLC" : 1150
+            "SLC" : 1150,
+            "<3" : 0
         ],
         "Phoenix" : [
             "St. Louis" : 1260,
             "Phoenix" : 0,
             "Denver" : 601,
-            "SLC" : 508
+            "SLC" : 508,
+            "<3": 0
         ],
         "Denver" : [
             "St. Louis" : 768,
             "Phoenix" : 601,
             "Denver" : 0,
-            "SLC" : 390
+            "SLC" : 390,
+            "<3": 0
         ],
         "SLC" : [
             "St. Louis" : 1150,
             "Phoenix" : 508,
             "Denver" : 390,
-            "SLC" : 0
+            "SLC" : 0,
+            "<3": 0
+        ],
+        "<3" : [
+            "St. Louis" : 0,
+            "Phoenix" : 0,
+            "Denver" : 0,
+            "SLC" : 0,
+            "<3": 0
         ]
     ]
     
