@@ -44,6 +44,7 @@ class Aviatrix {
     
     func flyTo(destination : String) {
         distanceTraveled += distanceTo(loc: location, target: destination)
+        milesPerGallon = 0.55 - (fuelLevel) * (0.00005)
         fuelLevel -= Double(distanceTo(loc: location, target: destination)) * milesPerGallon
         location = destination
     }
