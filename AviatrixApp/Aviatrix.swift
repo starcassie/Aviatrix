@@ -10,6 +10,14 @@ import Foundation
 
 class Aviatrix {
     
+    // holds author
+    var author: String
+    
+    // initializer
+    init(name: String) {
+        author = name
+    }
+    
     func start() -> Bool {
         return true
     }
